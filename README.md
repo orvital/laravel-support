@@ -1,2 +1,2 @@
-# laravel-support
+# Laravel Support
 Laravel support package.

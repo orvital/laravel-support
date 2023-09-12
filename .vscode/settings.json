@@ -1,0 +1,7 @@
+{
+    "intelephense.diagnostics.enable": true,
+    "laravel-pint.enable": true,
+    "[php]": {
+        "editor.defaultFormatter": "open-southeners.laravel-pint"
+    },
+}
