@@ -18,5 +18,6 @@ class SupportServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
+        $this->loadTranslationsFrom(__DIR__.'/../lang', 'support');
     }
 }
