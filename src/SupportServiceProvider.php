@@ -2,23 +2,28 @@
 
 namespace Orvital\Support;
 
-use Illuminate\Support\ServiceProvider;
+use Carbon\CarbonImmutable;
+use Illuminate\Support\AggregateServiceProvider;
+use Illuminate\Support\Facades\Date;
 use Orvital\Support\Console\Commands\RouteShowCommand;
+use Orvital\Support\Extensions\Migration\MigrationProvider;
+use Orvital\Support\Extensions\Session\SessionProvider;
 
-class SupportServiceProvider extends ServiceProvider
+class SupportServiceProvider extends AggregateServiceProvider
 {
-    /**
-     * Register bindings.
-     */
-    public function register(): void
-    {
-    }
+    protected $providers = [
+        SessionProvider::class,
+        MigrationProvider::class,
+    ];
 
     /**
      * Boot services.
      */
     public function boot(): void
     {
+        // Use CarbonImmutable by default
+        Date::use(CarbonImmutable::class);
+
         $this->loadTranslationsFrom(__DIR__.'/../lang', 'support');
 
         if ($this->app->runningInConsole()) {
