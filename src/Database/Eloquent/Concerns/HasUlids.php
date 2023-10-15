@@ -2,15 +2,15 @@
 
 namespace Orvital\Support\Database\Eloquent\Concerns;
 
-use Illuminate\Database\Eloquent\Concerns\HasUlids;
+use Illuminate\Database\Eloquent\Concerns\HasUlids as BaseHasUlids;
 use Illuminate\Support\Str;
 
 /**
  * @mixin \Illuminate\Database\Eloquent\Model
  */
-trait HasUlid
+trait HasUlids
 {
-    use HasUlids;
+    use BaseHasUlids;
 
     public function initializeHasUlids()
     {

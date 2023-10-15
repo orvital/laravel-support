@@ -3,6 +3,7 @@
 namespace Orvital\Support;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\Date;
 use Orvital\Support\Console\Commands\RouteShowCommand;
@@ -21,6 +22,8 @@ class SupportServiceProvider extends AggregateServiceProvider
      */
     public function boot(): void
     {
+        Builder::defaultStringLength(192);
+
         // Use CarbonImmutable by default
         Date::use(CarbonImmutable::class);
 
