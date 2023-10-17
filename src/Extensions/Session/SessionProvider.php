@@ -5,6 +5,9 @@ namespace Orvital\Support\Extensions\Session;
 use Illuminate\Support\ServiceProvider;
 use Orvital\Support\Extensions\Session\SessionManager;
 
+/**
+ * @property-read \Illuminate\Foundation\Application $app
+ */
 class SessionProvider extends ServiceProvider
 {
     /**
@@ -12,7 +15,7 @@ class SessionProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Not Deferred Providers
+        // Singleton / Not Deferred
         $this->app->singleton('session', function ($app) {
             return new SessionManager($app);
         });

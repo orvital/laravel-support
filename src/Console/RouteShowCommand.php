@@ -1,6 +1,6 @@
 <?php
 
-namespace Orvital\Support\Console\Commands;
+namespace Orvital\Support\Console;
 
 use Closure;
 use Illuminate\Console\Command;

@@ -7,6 +7,9 @@ use Illuminate\Support\ServiceProvider;
 use Orvital\Support\Extensions\Migration\DatabaseMigrationRepository;
 use Orvital\Support\Extensions\Migration\MigrationCreator;
 
+/**
+ * @property-read \Illuminate\Foundation\Application $app
+ */
 class MigrationProvider extends ServiceProvider
 {
     /**
@@ -14,12 +17,13 @@ class MigrationProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // Deferred Providers
-        $this->app->extend('migration.repository', function ($repository, $app) {
+        // Singleton / Deferred
+        $this->app->extend('migration.repository', function ($instance, $app) {
             return new DatabaseMigrationRepository($app['db'], $app['config']['database.migrations']);
         });
 
-        $this->app->extend('migration.creator', function ($repository, $app) {
+        // Singleton / Deferred
+        $this->app->extend('migration.creator', function ($instance, $app) {
             return new MigrationCreator($app['files'], $app->basePath('stubs'));
         });
     }

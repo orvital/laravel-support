@@ -6,10 +6,13 @@ use Carbon\CarbonImmutable;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\Date;
-use Orvital\Support\Console\Commands\RouteShowCommand;
+use Orvital\Support\Console\RouteShowCommand;
 use Orvital\Support\Extensions\Migration\MigrationProvider;
 use Orvital\Support\Extensions\Session\SessionProvider;
 
+/**
+ * @property-read \Illuminate\Foundation\Application $app
+ */
 class SupportServiceProvider extends AggregateServiceProvider
 {
     protected $providers = [
