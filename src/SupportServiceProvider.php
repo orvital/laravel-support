@@ -3,6 +3,7 @@
 namespace Orvital\Support;
 
 use Carbon\CarbonImmutable;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Schema\Builder;
 use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\Date;
@@ -25,7 +26,11 @@ class SupportServiceProvider extends AggregateServiceProvider
      */
     public function boot(): void
     {
+        Model::shouldBeStrict(! $this->app->isProduction());
+
         Builder::defaultStringLength(192);
+
+        Builder::defaultMorphKeyType('ulid');
 
         // Use CarbonImmutable by default
         Date::use(CarbonImmutable::class);
