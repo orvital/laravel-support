@@ -9,6 +9,8 @@ use Orvital\Support\Extensions\Migration\MigrationCreator;
 
 /**
  * @property-read \Illuminate\Foundation\Application $app
+ *
+ * @see \Illuminate\Database\MigrationServiceProvider
  */
 class MigrationProvider extends ServiceProvider
 {

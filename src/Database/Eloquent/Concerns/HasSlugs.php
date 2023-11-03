@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
 /**
- * @mixin \Illuminate\Database\Eloquent\Model
+ * @mixin \Orvital\Core\Eloquent\Model
  */
 trait HasSlugs
 {

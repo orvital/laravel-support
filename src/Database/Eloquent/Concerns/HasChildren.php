@@ -7,11 +7,12 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Str;
+use UnitEnum;
 
 /**
  * Inspired by https://github.com/tighten/parental
  *
- * @mixin \Illuminate\Database\Eloquent\Model
+ * @mixin \Orvital\Core\Eloquent\Model
  */
 trait HasChildren
 {
@@ -227,7 +228,7 @@ trait HasChildren
         $childTypes = $this->getChildTypes();
 
         // Handling Enum casting for `type` column
-        if ($aliasOrClass instanceof \UnitEnum) {
+        if ($aliasOrClass instanceof UnitEnum) {
             $aliasOrClass = $aliasOrClass->value;
         }
 

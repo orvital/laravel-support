@@ -10,7 +10,7 @@ use ReflectionException;
 /**
  * Inspired by https://github.com/tighten/parental
  *
- * @mixin \Illuminate\Database\Eloquent\Model
+ * @mixin \Orvital\Core\Eloquent\Model
  */
 trait HasParent
 {

@@ -15,7 +15,7 @@ use ReflectionClass;
 /**
  * Inspired by https://github.com/calebporzio/sushi
  *
- * @mixin \Illuminate\Database\Eloquent\Model
+ * @mixin \Orvital\Core\Eloquent\Model
  */
 trait InMemory
 {

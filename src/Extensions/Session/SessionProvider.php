@@ -7,6 +7,8 @@ use Orvital\Support\Extensions\Session\SessionManager;
 
 /**
  * @property-read \Illuminate\Foundation\Application $app
+ *
+ * @see \Illuminate\Session\SessionServiceProvider
  */
 class SessionProvider extends ServiceProvider
 {
