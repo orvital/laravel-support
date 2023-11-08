@@ -4,29 +4,25 @@ namespace Orvital\Support;
 
 use Carbon\CarbonImmutable;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Database\Schema\Builder;
-use Illuminate\Support\AggregateServiceProvider;
 use Illuminate\Support\Facades\Date;
+use Illuminate\Support\ServiceProvider;
 use Orvital\Support\Console\RouteShowCommand;
-use Orvital\Support\Extensions\Migration\MigrationProvider;
-use Orvital\Support\Extensions\Session\SessionProvider;
 
 /**
  * @property-read \Illuminate\Foundation\Application $app
  */
-class SupportServiceProvider extends AggregateServiceProvider
+class SupportServiceProvider extends ServiceProvider
 {
-    protected $providers = [
-        SessionProvider::class,
-        MigrationProvider::class,
-    ];
-
     /**
      * Boot services.
      */
     public function boot(): void
     {
         Model::shouldBeStrict(! $this->app->isProduction());
+
+        Relation::requireMorphMap();
 
         Builder::defaultStringLength(192);
 
